@@ -1,18 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-import LoginForm from './components/LoginForm';
-import SignUpForm from './components/SignUpForm';
-import NavBar from './components/NavBar';
-import { useState } from 'react';
+import "./App.css";
+import { useState } from "react";
+import GalleryPage from "./pages/GalleryPage";
+import AuthPage from "./pages/AuthPage";
+import CartPage from "./pages/CartPage";
+import { Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({});
 
-  
   return (
-    <div className="App">
-      <LoginForm />
-    </div>
+    <main className="App">
+      {user ? (
+        <>
+          <NavBar />
+          <Routes>
+            <Route path="/gallery/cart" element={<CartPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+          </Routes>
+        </>
+      ) : (
+        <AuthPage />
+      )}
+    </main>
   );
 }
 
