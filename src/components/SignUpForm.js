@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { signUp } from "../utilities/users-service"
 
 export default class SignUpForm extends Component {
   state = {
@@ -11,15 +12,24 @@ export default class SignUpForm extends Component {
 
   handleChange = (evt) => {
     this.setState({
-        [evt.target.name]: evt.target.value,
-        error: ''
-    })
-  }
+      [evt.target.name]: evt.target.value,
+      error: "",
+    });
+  };
 
-  handleSubmit =(evt) => {
-    evt.preventDefault()
-    alert(JSON.stringify(this.state))
-  }
+  handleSubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+      const formData = { ...this.state };
+      delete formData.error;
+      delete formData.confirm;
+
+      const user = await signUp(formData)
+      this.props.setUser(user)
+    } catch {
+      this.setState({ error: "Sign Up Failed - Try Again" });
+    }
+  };
 
   render() {
     const disable = this.state.password !== this.state.confirm;
