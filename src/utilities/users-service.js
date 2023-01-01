@@ -4,14 +4,14 @@ export async function signUp(userData) {
   const token = await usersAPI.signUp(userData);
 
   localStorage.setItem("token", token);
-  return getUser()
+  return getUser();
 }
 
 export async function login(credentials) {
-  const token = await usersAPI.login(credentials)
+  const token = await usersAPI.login(credentials);
 
   localStorage.setItem("token", token);
-  return getUser()
+  return getUser();
 }
 
 export function getToken() {
@@ -33,7 +33,17 @@ export function getUser() {
   return token ? JSON.parse(atob(token.split(".")[1])).user : null;
 }
 
-
 export function logOut() {
-    localStorage.removeItem("token")
+  localStorage.removeItem("token");
+}
+
+export function checkToken() {
+  // Just so that you don't forget how to use .then
+  return (
+    usersAPI
+      .checkToken()
+      // checkToken returns a string, but let's
+      // make it a Date object for more flexibility
+      .then((dateStr) => new Date(dateStr))
+  );
 }
