@@ -211,6 +211,26 @@ button[type="submit"] {
   width: 150px;
   height: 100px;
 }
+img {
+  width:100vw;
+  height: 50vh;
+}
+.credit-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.logShow {
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.submitbtn {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 /* .grid-container {
   display: grid;
