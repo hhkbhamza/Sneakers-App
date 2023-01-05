@@ -1,12 +1,20 @@
-export default function SneakerItem({ name, price, img }) {
-    return (
-      <div className="employee">
-        <img src={img} className="list-img" alt={img} />
-        <div className="content">
-          <h5 className="list-name">{name}</h5>
-          <p className="list-title">{price}</p>
-        </div>
+// function handleClick() {
+//   return <Link to="/gallery/:id"></Link>;
+// }
+import { Link } from "react-router-dom";
+
+export default function SneakerItem({ index, name, price, img }) {
+  console.log(index)
+  return (
+    <Link to={`/gallery/${index}`}>
+    
+    <div className="SneakerItem">
+      <img src={img} className="list-img" alt={img} />
+      <div className="content">
+        <h3>{name}</h3>
+        <p>{price}</p>
       </div>
-    );
-  }
-  
+    </div>
+    </Link>
+  );
+}
