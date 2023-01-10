@@ -1,13 +1,13 @@
 require('dotenv').config();
 require('./database');
 
-const Order = require('../models/order');
+const Sneaker = require('../models/sneaker');
 
 (async function() {
 
 
-  await Order.deleteMany({});
-  const orders = await Order.create([
+  await Sneaker.deleteMany({});
+  const sneakers = await Sneaker.create([
     {
         index: 0,
         name: "Nike Air Force 01",
@@ -64,7 +64,7 @@ const Order = require('../models/order');
       }
   ]);
 
-  console.log(orders)
+  console.log(sneakers)
 
   process.exit();
 

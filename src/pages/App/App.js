@@ -1,11 +1,11 @@
-import "./App.css";
+import "../../../src/App.css";
 import { useState } from "react";
-import GalleryPage from "./pages/GalleryPage";
-import AuthPage from "./pages/AuthPage";
+import GalleryPage from "../GalleryPage";
+import AuthPage from "../AuthPage";
 import { Routes, Route, Navigate } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import { getUser } from "./utilities/users-service"
-import SneakerPage from "./pages/SneakerPage"
+import NavBar from "../../components/NavBar";
+import { getUser } from "../../utilities/users-service"
+import SneakerPage from "../SneakerPage"
 
 function App() {
   const [user, setUser] = useState(getUser());
