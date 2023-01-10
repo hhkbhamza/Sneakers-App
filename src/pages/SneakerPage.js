@@ -11,9 +11,14 @@ export default function SneakerPage(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    alert(`This is the credit card number you entered: \n 
-            credit: ${credit} \n `);
-    return checkCredit(credit) === true;
+    // alert(`This is the credit card number you entered: \n 
+    //         credit: ${credit} \n `);
+    console.log(checkCredit(credit))
+    if(checkCredit(credit) === true)  {
+      alert("order Successful")
+    } else {
+      alert("order failed")
+    }
     
   };
   function checkCredit(num) {
@@ -51,7 +56,7 @@ export default function SneakerPage(props) {
       sum += array[i];
     }
     console.log(sum);
-    console.log(sum % 10 === 0);
+    return (sum % 10 === 0)
   }
   const { id } = useParams();
   console.log(id);
